@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap");
 @import "tailwindcss";
+@import "./vespre.css";
 
 :root {
   --background: #ffffff;
@@ -20,7 +22,6 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--vsp-ink);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

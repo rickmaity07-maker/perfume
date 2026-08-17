@@ -1,0 +1,334 @@
+/* Vespre — original design tokens.
+   Import this once, e.g. in app/globals.css:  @import "./vespre.css";
+   Fonts: Fraunces (display) + Work Sans (body/utility). Swap freely. */
+
+.vsp-root {
+  --vsp-ink: #000000;       /* Pure editorial black */
+  --vsp-ink-2: #0a0a0a;     /* Deep charcoal for subtle contrast */
+  --vsp-bone: #ffffff;      /* Pure crisp white */
+  --vsp-bronze: #c5a059;    /* Subtle luxury gold/champagne for accents */
+  --vsp-wine: #1a1a1a;      /* Replaced wine with dark grey for selections */
+  --vsp-moss: #6b7268;      /* herbal contrast, used sparingly */
+  --vsp-line: rgba(255, 255, 255, 0.15); /* Neutral semi-transparent borders */
+  --vsp-glass: #ffffff;     /* svg bottle fill */
+
+  background: var(--vsp-ink);
+  color: var(--vsp-bone);
+  font-family: "Work Sans", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.vsp-root h1,
+.vsp-root h2,
+.vsp-root h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.vsp-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vsp-bronze);
+  margin: 0 0 0.75rem;
+}
+
+/* NAV */
+.vsp-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem clamp(1.25rem, 4vw, 4rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.vsp-wordmark {
+  display: flex;
+  flex-direction: column;
+  font-family: "Fraunces", serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+}
+.vsp-wordmark em {
+  font-style: normal;
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vsp-bronze);
+}
+.vsp-nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.vsp-nav-links a {
+  color: var(--vsp-bone);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  opacity: 0.85;
+}
+.vsp-nav-links a:hover,
+.vsp-nav-links a:focus-visible {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.vsp-nav-actions {
+  display: flex;
+  gap: 1rem;
+}
+.vsp-nav-actions button {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--vsp-bone);
+  font-size: 0.75rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.vsp-nav-actions button:hover,
+.vsp-nav-actions button:focus-visible {
+  border-color: var(--vsp-bronze);
+}
+
+/* HERO */
+.vsp-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2rem;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 4vw, 4rem);
+}
+.vsp-hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 1.02;
+}
+.vsp-hero-sub {
+  max-width: 34ch;
+  margin: 1.5rem 0 2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.vsp-cta {
+  display: inline-block;
+  background: var(--vsp-bronze);
+  color: var(--vsp-ink);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+}
+.vsp-cta:hover,
+.vsp-cta:focus-visible {
+  filter: brightness(1.08);
+}
+.vsp-hero-photo {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  aspect-ratio: 4 / 5;
+}
+.vsp-hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* COLLECTION */
+.vsp-collection {
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 4rem);
+}
+.vsp-section-head h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  max-width: 20ch;
+}
+.vsp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.vsp-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.vsp-card-photo {
+  height: 200px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+.vsp-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.vsp-card:hover .vsp-card-photo img {
+  transform: scale(1.03);
+}
+.vsp-card h3 {
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+}
+.vsp-card-notes {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0.35rem 0 1.25rem;
+}
+.vsp-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.vsp-card-footer button {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--vsp-bone);
+  font-size: 0.72rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.vsp-card-footer button:hover,
+.vsp-card-footer button:focus-visible {
+  border-color: var(--vsp-bronze);
+}
+
+/* ATELIER */
+.vsp-atelier {
+  display: grid;
+  grid-template-columns: 1fr 0.6fr;
+  gap: 2rem;
+  align-items: center;
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 4rem);
+  background: var(--vsp-ink-2);
+}
+.vsp-atelier-copy h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  max-width: 22ch;
+  margin-bottom: 1.25rem;
+}
+.vsp-atelier-copy p {
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 46ch;
+  margin: 0 0 1rem;
+}
+.vsp-atelier-photo {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  aspect-ratio: 3 / 4;
+}
+.vsp-atelier-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* FOOTER */
+.vsp-footer {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(3, 1fr);
+  gap: 2rem;
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 4rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.vsp-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.vsp-footer-col h4 {
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vsp-bronze);
+  margin-bottom: 0.4rem;
+}
+.vsp-footer-col a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.vsp-footer-col a:hover,
+.vsp-footer-col a:focus-visible {
+  color: var(--vsp-bone);
+  text-decoration: underline;
+}
+.vsp-footer-form form {
+  display: flex;
+  gap: 0.5rem;
+}
+.vsp-footer-form input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  color: var(--vsp-bone);
+  font-size: 0.8rem;
+}
+.vsp-footer-form button {
+  background: var(--vsp-bronze);
+  color: var(--vsp-ink);
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 860px) {
+  .vsp-hero,
+  .vsp-atelier,
+  .vsp-footer {
+    grid-template-columns: 1fr;
+  }
+  .vsp-nav-links {
+    display: none;
+  }
+}
+
+/* respect reduced motion preference site-wide */
+@media (prefers-reduced-motion: reduce) {
+  .vsp-root * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* --- LUXURY UTILITIES --- */
+
+/* Frosted neutral glass effect for navbars and overlapping cards */
+.vsp-glass {
+  background: rgba(10, 10, 10, 0.5); /* Neutral dark glass, no red tint */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Cinematic text glow for primary headings */
+.vsp-text-glow {
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+/* Image reveal mask */
+.vsp-image-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
