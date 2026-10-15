@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 // Removed the brand icons from this import:
 import { ShoppingBag, Search, Menu, X, Plus, Minus } from "lucide-react";
@@ -31,10 +32,13 @@ function Shell({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  // Design concepts bring their own nav and footer; keep only the cart drawer there.
+  const bare = usePathname()?.startsWith("/concepts") ?? false;
 
   return (
     <>
       {/* NAVBAR */}
+      {!bare && (
       <header className="fixed top-0 left-0 right-0 z-40 vsp-glass border-b border-white/5 h-20 flex items-center px-6 transition-all duration-300">
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
           <div className="flex items-center gap-8 text-[10px] uppercase tracking-[0.2em] text-white/70 font-semibold">
@@ -60,6 +64,7 @@ function Shell({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </header>
+      )}
 
       {/* OVERLAYS */}
       <AnimatePresence>
@@ -129,6 +134,7 @@ function Shell({ children }: { children: React.ReactNode }) {
       {children}
 
       {/* --- UPGRADED LUXURY FOOTER --- */}
+      {!bare && (
       <footer id="contact" className="relative bg-[#050505] border-t border-white/5 pt-20 pb-10 px-6">
         <div className="max-w-7xl mx-auto">
           
@@ -218,6 +224,7 @@ function Shell({ children }: { children: React.ReactNode }) {
 
         </div>
       </footer>
+      )}
     </>
   );
 }
